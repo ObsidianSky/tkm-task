@@ -15,7 +15,7 @@ export default class Post extends Component {
                         <Button>Delete</Button>
                     </div>
                     <div className="post-buttons-container__right">
-                        <CommentsButton id={id}>{commentsVisible ? 'Hide comments' : 'Show comments'}</CommentsButton>
+                        <CommentsButton id={id} className="button--red">{commentsVisible ? 'Hide comments' : 'Show comments'}</CommentsButton>
                     </div>
                 </div>
                 {commentsVisible &&
