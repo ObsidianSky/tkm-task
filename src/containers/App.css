@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+body {
+    background: #cfe2f3;
+    padding: 50px 40px;
+}
+
+.page-title {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    font-size: 50px;
+    font-weight: normal;
+}

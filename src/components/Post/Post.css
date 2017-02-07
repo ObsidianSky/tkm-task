@@ -1,0 +1,26 @@
+.post {
+  margin-bottom: 15px;
+  max-width: 800px;
+}
+
+.post__heading {
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.post__body {
+  margin-bottom: 10px;
+}
+
+.post-buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comments {
+  padding: 10px;
+  background-color: lightgray;
+}
