@@ -1,0 +1,13 @@
+.comment-list {
+    padding: 10px;
+    background-color: lightgray;
+}
+
+.comment-list__item {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #000;
+}
+
+.comment-list__item + .comment-list__item {
+    margin-top: 20px;
+}

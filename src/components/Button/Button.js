@@ -10,7 +10,7 @@ export default class Button extends Component {
             {children}
         </button>
     }
-    // static propTypes = {
-    //     onClick: React.PropTypes.function,
-    // }
+    static propTypes = {
+        onClick: React.PropTypes.func,
+    }
 }

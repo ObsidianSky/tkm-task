@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.8.5"
+    "react-scripts": "0.8.5",
+    "redux-devtools-extension": "^2.13.0"
   },
   "dependencies": {
     "normalize.css": "^5.0.0",

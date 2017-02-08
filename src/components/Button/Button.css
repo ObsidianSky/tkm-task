@@ -3,11 +3,26 @@
     background: none;
     color: #000;
     padding: 4px 12px;
-    min-width: 120px;
+    width: 120px;
     border-radius: 7px;
     cursor: pointer;
 }
 
-.button--red {
+.button--wide {
+    width: 145px;
+}
 
+.button--pink {
+    background-color: #f4cccc;
+    border-color: #cc0000;
+}
+
+.button--blue {
+    background-color: #9fc5e8;
+    border-color: #2f6ea8;
+}
+
+.button--green {
+    background-color: #d9ead3;
+    border-color: #6aa84f;
 }
