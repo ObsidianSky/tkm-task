@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
+import loading from './components/LoadingIndicator/LoadingIndicator.reducer';
 
 import { POSTS_FETCH_REQUEST, POSTS_FETCH_SUCCESS, POSTS_FETCH_ERROR} from './constants'
 import { COMMENTS_SHOW, COMMENTS_HIDE, COMMENTS_FETCH_REQUEST, COMMENTS_FETCH_SUCCESS, COMMENTS_FETCH_ERROR} from './constants'
 
 const postsInitialState = {
-    fetching: false,
     error: null,
     entities: []
 };
@@ -12,11 +12,11 @@ const postsInitialState = {
 const posts = (state = postsInitialState, action) => {
     switch (action.type) {
         case POSTS_FETCH_REQUEST:
-            return {...state, fetching: true, error: null};
+            return {...state, error: null};
         case POSTS_FETCH_SUCCESS:
-            return {...state, fetching: false, entities: action.payload};
+            return {...state, entities: action.payload};
         case POSTS_FETCH_ERROR:
-            return {...state, fetching: false, error: action.payload};
+            return {...state, error: action.payload};
         default:
             return state;
     }
@@ -50,5 +50,6 @@ const visibleCommentForPosts = (state = [], action) => {
 export default combineReducers({
     comments,
     posts,
-    visibleCommentForPosts
+    visibleCommentForPosts,
+    loading
 })

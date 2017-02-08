@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './rootReducer';
 import thunk from 'redux-thunk';
+import loadingIndicator from './components/LoadingIndicator/LoadingIndicator.middleware';
 import reduxLogger from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
@@ -13,7 +14,8 @@ export default (initialState) => {
         composeWithDevTools(
             applyMiddleware(
                 thunk,
-                logger
+                logger,
+                loadingIndicator
             )
         )
     )

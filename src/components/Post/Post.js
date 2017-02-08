@@ -6,7 +6,7 @@ import './Post.css';
 
 export default class Post extends Component {
     render() {
-        const { id, title, body, commentsVisible} = this.props;
+        const { id, title, body, commentsIsVisible} = this.props;
         return <div className="post">
                 <h2 className="post__heading">{title}</h2>
                 <p className="post__body">{body}</p>
@@ -16,10 +16,10 @@ export default class Post extends Component {
                         <Button className="button--pink post-button">Delete</Button>
                     </div>
                     <div className="post-buttons-container__right">
-                        <CommentsButton id={id} className="button--green button--wide post-button">{commentsVisible ? 'Hide comments' : 'Show comments'}</CommentsButton>
+                        <CommentsButton id={id} className="button--green button--wide post-button">{commentsIsVisible ? 'Hide comments' : 'Show comments'}</CommentsButton>
                     </div>
                 </div>
-                {commentsVisible &&
+                {commentsIsVisible &&
                     <div className="post__comments">
                         <PostComments  postId={id} />
                     </div>

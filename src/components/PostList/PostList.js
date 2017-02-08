@@ -1,19 +1,16 @@
 import React, {Component} from 'react';
-import Post from '../Post/Post';
+import PostContainer from '../../containers/PostContainer/';
 
 export default class PostList extends Component {
     render() {
-        const { entities:posts, fetching, error} = this.props.posts;
-        const { visibleCommentForPosts } =  this.props;
+        const { entities:posts, error} = this.props.posts;
         return <div>
-            {fetching && 'Loading...'}
-            {(!fetching && error) && <span>{error}</span>}
+            {error && <span>{error}</span>}
 
             {posts.map((post) => {
-                return <Post
+                return <PostContainer
                     key={post.id}
                     {...post}
-                    commentsVisible={visibleCommentForPosts.includes(post.id)}
                 />
             })}
         </div>

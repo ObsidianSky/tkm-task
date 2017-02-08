@@ -15,8 +15,7 @@ class GenericPostList extends Component {
 }
 
 const mapStateToProps = state => ({
-    posts: state.posts,
-    visibleCommentForPosts: state.visibleCommentForPosts
+    posts: state.posts
 });
 
 export default connect(mapStateToProps)(GenericPostList);
