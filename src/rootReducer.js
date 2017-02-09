@@ -2,7 +2,11 @@ import { combineReducers } from 'redux';
 import loading from './components/LoadingIndicator/LoadingIndicator.reducer';
 
 import { POSTS_FETCH_REQUEST, POSTS_FETCH_SUCCESS, POSTS_FETCH_ERROR} from './constants'
-import { COMMENTS_SHOW, COMMENTS_HIDE, COMMENTS_FETCH_REQUEST, COMMENTS_FETCH_SUCCESS, COMMENTS_FETCH_ERROR} from './constants'
+import { POSTS_DELETE_SUCCESS } from './constants'
+import {
+    COMMENTS_SHOW, COMMENTS_HIDE,
+    COMMENTS_FETCH_REQUEST, COMMENTS_FETCH_SUCCESS, COMMENTS_FETCH_ERROR
+} from './constants'
 
 const postsInitialState = {
     error: null,
@@ -17,6 +21,8 @@ const posts = (state = postsInitialState, action) => {
             return {...state, entities: action.payload};
         case POSTS_FETCH_ERROR:
             return {...state, error: action.payload};
+        case POSTS_DELETE_SUCCESS:
+            return {...state, entities: state.entities.filter( post => post.id !== action.payload )};
         default:
             return state;
     }
@@ -41,7 +47,7 @@ const visibleCommentForPosts = (state = [], action) => {
             return [
                     ...state.slice(0, index),
                     ...state.slice(index + 1)
-            ]
+            ];
         default:
             return state;
     }

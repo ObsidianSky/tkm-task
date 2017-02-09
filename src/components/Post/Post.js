@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import Button from '../Button/Button';
-import CommentsButton from '../../containers/CommentsButton';
-import PostComments from '../../containers/PostComments/PostComments';
+import ToggleCommentsButton from '../../containers/ToggleCommentsButton';
+import DeletePostButton from '../../containers/DeletePostButton';
+import PostComments from '../../containers/PostComments/index';
 import './Post.css';
 
 export default class Post extends Component {
@@ -13,10 +14,10 @@ export default class Post extends Component {
                 <div className="post-buttons-container">
                     <div className="post-buttons-container__left">
                         <Button className="button--blue post-button">Edit</Button>
-                        <Button className="button--pink post-button">Delete</Button>
+                        <DeletePostButton id={id} className="button--pink post-button">Delete</DeletePostButton>
                     </div>
                     <div className="post-buttons-container__right">
-                        <CommentsButton id={id} className="button--green button--wide post-button">{commentsIsVisible ? 'Hide comments' : 'Show comments'}</CommentsButton>
+                        <ToggleCommentsButton id={id} className="button--green button--wide post-button">{commentsIsVisible ? 'Hide comments' : 'Show comments'}</ToggleCommentsButton>
                     </div>
                 </div>
                 {commentsIsVisible &&

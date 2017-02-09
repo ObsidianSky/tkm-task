@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import PostList from '../../components/PostList/PostList';
-import { fetchPosts } from '../../actions';
+import { fetchPosts } from './actions';
 
 
-class GenericPostList extends Component {
+class GeneralPostList extends Component {
     componentDidMount() {
         const { dispatch } = this.props;
         dispatch(fetchPosts());
@@ -18,4 +18,4 @@ const mapStateToProps = state => ({
     posts: state.posts
 });
 
-export default connect(mapStateToProps)(GenericPostList);
+export default connect(mapStateToProps)(GeneralPostList);
