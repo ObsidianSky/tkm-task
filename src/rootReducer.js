@@ -1,28 +1,15 @@
 import { combineReducers } from 'redux';
 import loading from './components/LoadingIndicator/LoadingIndicator.reducer';
-
-import { POSTS_FETCH_REQUEST, POSTS_FETCH_SUCCESS, POSTS_FETCH_ERROR} from './constants'
+import { POSTS_FETCH_SUCCESS } from './constants'
 import { POSTS_DELETE_SUCCESS } from './constants'
-import {
-    COMMENTS_SHOW, COMMENTS_HIDE,
-    COMMENTS_FETCH_REQUEST, COMMENTS_FETCH_SUCCESS, COMMENTS_FETCH_ERROR
-} from './constants'
+import { COMMENTS_SHOW, COMMENTS_HIDE, COMMENTS_FETCH_SUCCESS } from './constants'
 
-const postsInitialState = {
-    error: null,
-    entities: []
-};
-
-const posts = (state = postsInitialState, action) => {
+const posts = (state = [], action) => {
     switch (action.type) {
-        case POSTS_FETCH_REQUEST:
-            return {...state, error: null};
         case POSTS_FETCH_SUCCESS:
-            return {...state, entities: action.payload};
-        case POSTS_FETCH_ERROR:
-            return {...state, error: action.payload};
+            return action.payload;
         case POSTS_DELETE_SUCCESS:
-            return {...state, entities: state.entities.filter( post => post.id !== action.payload )};
+            return state.filter( post => post.id !== action.payload );
         default:
             return state;
     }

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import GeneralPostList from '../containers/GeneralPostList/index';
-import LoadingIndicator from './LoadingIndicator/LoadingIndicator';
+import GeneralPostList from './PostList/PostList.container';
+import LoadingIndicator from './LoadingIndicator/LoadingIndicator.container';
 import './App.css'
 
 class App extends Component {

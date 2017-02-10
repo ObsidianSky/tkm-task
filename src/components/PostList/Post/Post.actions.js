@@ -1,6 +1,6 @@
-import { MAX_COMMENTS_AMOUNT, REST_URL } from '../../constants'
-import { COMMENTS_SHOW, COMMENTS_HIDE, COMMENTS_FETCH_REQUEST, COMMENTS_FETCH_SUCCESS, COMMENTS_FETCH_ERROR } from '../../constants'
-import { fetchErrorHandler } from '../../utils'
+import { MAX_COMMENTS_AMOUNT, REST_URL } from '../../../constants'
+import { COMMENTS_SHOW, COMMENTS_HIDE, COMMENTS_FETCH_REQUEST, COMMENTS_FETCH_SUCCESS, COMMENTS_FETCH_ERROR } from '../../../constants'
+import { fetchErrorHandler } from '../../../utils'
 
 const showComments = (postId) => ({
     type: COMMENTS_SHOW,
@@ -57,5 +57,27 @@ export const toggleComments = (postId) => (
             dispatch(fetchComments(postId))
                 .then(() => dispatch(showComments(postId)));
         }
+    }
+);
+
+export const deletePost = (postId) => (
+    dispatch => {
+        dispatch({
+            type: 'POSTS_DELETE_REQUEST'
+        });
+
+        return fetch(`${REST_URL}/posts/${postId}`, {
+            method: 'DELETE'
+        })
+            .then(fetchErrorHandler)
+            .then(response => dispatch({
+                type: 'POSTS_DELETE_SUCCESS',
+                payload: postId
+            }))
+            .catch(error => {
+                dispatch({
+                    type: 'POSTS_DELETE_ERROR'
+                })
+            })
     }
 );

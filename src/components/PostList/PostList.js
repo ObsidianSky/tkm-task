@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
-import PostContainer from '../../containers/PostContainer/';
+import Post from './Post/Post.container';
 
 export default class PostList extends Component {
     render() {
-        const { entities:posts, error} = this.props.posts;
+        const { posts } = this.props;
         return <div>
-            {error && <span>{error}</span>}
 
             {posts.map((post) => {
-                return <PostContainer
+                return <Post
                     key={post.id}
                     {...post}
                 />
@@ -17,7 +16,6 @@ export default class PostList extends Component {
     }
 
     static propTypes = {
-        posts: React.PropTypes.object,
-        visibleCommentForPosts: React.PropTypes.array
+        posts: React.PropTypes.array
     }
 }

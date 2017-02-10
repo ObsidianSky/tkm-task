@@ -1,23 +1,21 @@
 import React, {Component} from 'react';
-import Button from '../Button/Button';
-import ToggleCommentsButton from '../../containers/ToggleCommentsButton';
-import DeletePostButton from '../../containers/DeletePostButton';
-import PostComments from '../../containers/PostComments/index';
+import Button from '../../Button/Button';
+import PostComments from '../../CommentList/CommentList.container';
 import './Post.css';
 
 export default class Post extends Component {
     render() {
-        const { id, title, body, commentsIsVisible} = this.props;
+        const { id, title, body, commentsIsVisible, deletePost, toggleComments} = this.props;
         return <div className="post">
                 <h2 className="post__heading">{title}</h2>
                 <p className="post__body">{body}</p>
                 <div className="post-buttons-container">
                     <div className="post-buttons-container__left">
                         <Button className="button--blue post-button">Edit</Button>
-                        <DeletePostButton id={id} className="button--pink post-button">Delete</DeletePostButton>
+                        <Button onClick={deletePost} className="button--pink post-button">Delete</Button>
                     </div>
                     <div className="post-buttons-container__right">
-                        <ToggleCommentsButton id={id} className="button--green button--wide post-button">{commentsIsVisible ? 'Hide comments' : 'Show comments'}</ToggleCommentsButton>
+                        <Button onClick={toggleComments} className="button--green button--wide post-button">{commentsIsVisible ? 'Hide comments' : 'Show comments'}</Button>
                     </div>
                 </div>
                 {commentsIsVisible &&
