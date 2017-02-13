@@ -5,7 +5,7 @@ import './Post.css';
 
 export default class Post extends Component {
     render() {
-        const { id, title, body, commentsIsVisible, deletePost, toggleComments} = this.props;
+        const { id, title, body, commentsIsVisible, deletePost, toggleComments } = this.props;
         return <div className="post">
                 <h2 className="post__heading">{title}</h2>
                 <p className="post__body">{body}</p>
